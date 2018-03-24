@@ -1,0 +1,59 @@
+version: '3.1'
+
+services:
+
+  portainer:
+    image: tekanaid/portainer:1.16.4
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    restart: always
+
+  influxdb:
+    image: tekanaid/influxdb:1.5.1
+    volumes: 
+      - ~/influxdb:/var/lib/influxdb
+    restart: always
+
+  chronograf:
+    image: tekanaid/chronograf:1.4
+    ports:
+      - 8888:8888
+    volumes: 
+      - ~/chronograf:/var/lib/chronograf
+    restart: always
+
+  grafana:
+    image: tekanaid/grafana:5.0.3
+    ports:
+      - 3000:3000
+    volumes: 
+      - ~/grafana:/var/lib/grafana
+    restart: always
+
+  home-assistant:
+    image: tekanaid/homeassistant:0.60
+    ports:
+      - 8123:8123
+    environment:
+      TZ: America/Toronto
+    volumes: 
+      - ~/HomeAssistant:/config
+    restart: always  
+
+  openvpn:
+    image: tekanaid/openvpn:1.0
+    ports:
+      - 443:443
+      - 943:943
+      - 1194:1194/udp
+    volumes: 
+      - openvpn:/usr/local/openvpn_as
+    restart: always    
+    privileged: true
+
+volumes:
+  portainer_data:
+  openvpn:
