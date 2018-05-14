@@ -43,6 +43,14 @@ services:
       - ~/HomeAssistant:/config
     restart: always  
 
+  duckdns:
+    image: tekanaid/duckdns:110
+    environment:
+      TZ: America/Toronto
+      TOKEN: <token>
+      SUBDOMAINS: <subdomains>
+    restart: always  
+  
   openvpn:
     image: tekanaid/openvpn:124
     volumes: 
