@@ -44,7 +44,7 @@ services:
     restart: always  
 
   openvpn:
-    image: tekanaid/openvpn:1.0
+    image: tekanaid/openvpn:124
     volumes: 
       - ~/openvpn_as:/config
     environment: 
