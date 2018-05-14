@@ -45,15 +45,14 @@ services:
 
   openvpn:
     image: tekanaid/openvpn:1.0
-    ports:
-      - 443:443
-      - 943:943
-      - 1194:1194/udp
     volumes: 
-      - openvpn:/usr/local/openvpn_as
-    restart: always    
+      - ~/openvpn_as:/config
+    environment: 
+      - TZ=America/Toronto
+    restart: always
     privileged: true
+    network_mode: "host"
 
 volumes:
   portainer_data:
-  openvpn:
+ # openvpn:
