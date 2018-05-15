@@ -56,7 +56,7 @@ services:
     volumes: 
       - ~/openvpn_as:/config
     environment: 
-      - TZ=America/Toronto
+      TZ=America/Toronto
     restart: always
     privileged: true
     network_mode: "host"
