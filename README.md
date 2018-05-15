@@ -20,7 +20,7 @@ The admin interface is available at https://<ip>:943/admin with a default user/p
 
 During first login, make sure that the "Authentication" in the webui is set to "Local" instead of "PAM". Then set up the user accounts with their passwords (user accounts created under PAM do not survive container update or recreation).
 
-The "admin" account is a system (PAM) account and after container update or recreation, its password reverts back to the default. It is highly recommended to block this user's access for security reasons:
+The "admin" account is a system (PAM) account and after container update or recreation, its password reverts back to the default. It is highly recommended to block this user's access for security reasons. In my experience, doing 3) below is sufficient and I couldn't delete the admin user from the gui.
 1) Set another user as an admin,
 2) Delete the "admin" user in the gui,
 3) Modify the as.conf file under config/etc and replace the line boot_pam_users.0=admin with #boot_pam_users.0=admin (this only has to be done once and will survive container recreation)
