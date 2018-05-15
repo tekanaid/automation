@@ -15,6 +15,7 @@ Make sure to replace the ens160 in the docker-compose file with the proper inter
 INTERFACE: ens160
 
 __Setting up the application__
+
 The admin interface is available at https://<ip>:943/admin with a default user/password of admin/password
 
 During first login, make sure that the "Authentication" in the webui is set to "Local" instead of "PAM". Then set up the user accounts with their passwords (user accounts created under PAM do not survive container update or recreation).
