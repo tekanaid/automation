@@ -57,6 +57,7 @@ services:
       - ~/openvpn_as:/config
     environment: 
       TZ=America/Toronto
+      INTERFACE: ens160
     restart: always
     privileged: true
     network_mode: "host"
