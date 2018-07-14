@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+
+  duckdns:
+    image: generalaardvark/rpi-duckdns
+    environment:
+      TZ: America/Toronto
+      TOKEN: a919e060-903c-43a2-acf0-4a59e1167275
+      DOMAIN: gabrailhome.duckdns.org
