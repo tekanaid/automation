@@ -6,5 +6,5 @@ services:
     image: tekanaid/duckdns-rpi:110
     environment:
       TZ: America/Toronto
-      TOKEN: a919e060-903c-43a2-acf0-4a59e1167275
-      DOMAIN: gabrailhome.duckdns.org
+      TOKEN: <TOKEN>
+      DOMAIN: <SUBDOMAIN>.duckdns.org
