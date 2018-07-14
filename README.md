@@ -38,6 +38,8 @@ https://hub.docker.com/r/linuxserver/openvpn-as/
 
 ## OpenVPN for ARM:
 
+### Define the environment variable below
+
 OVPN_DATA="ovpn-data"
 
 ### Initialize the $OVPN_DATA container that will hold the configuration files and certificates
