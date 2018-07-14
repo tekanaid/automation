@@ -1,7 +1,7 @@
 # Automation
-This is mainly a docker-compose file to set up some home automation stuff. 
+This is mainly a docker-compose file to set up some home automation stuff. The docker-compose.yml is for x86 machines and the docker-compose-rpi.yml is for the ARM architecture.
 
-## DuckDNS:
+## DuckDNS for x86:
 
 Make sure to replace the below under the duckdns section with your own parameters:
 
@@ -9,7 +9,15 @@ TOKEN: your own token
 
 SUBDOMAINS: your own subdomains
 
-## OpenVPN:
+## DuckDNS for ARM:
+
+Make sure to replace the below under the duckdns section with your own parameters:
+
+TOKEN: your own token
+
+DOMAIN: your own full domain including the .duckdns.org
+
+## OpenVPN-Access Server for x86:
 
 Make sure to replace the ens160 in the docker-compose file with the proper interface that you get an IP on for the server
 INTERFACE: ens160
@@ -27,3 +35,24 @@ The "admin" account is a system (PAM) account and after container update or recr
 
 You can find more information here:
 https://hub.docker.com/r/linuxserver/openvpn-as/
+
+## OpenVPN for ARM:
+
+OVPN_DATA="ovpn-data"
+
+### Initialize the $OVPN_DATA container that will hold the configuration files and certificates
+docker volume create --name $OVPN_DATA
+docker run -v $OVPN_DATA:/etc/openvpn --rm evolvedm/openvpn-rpi ovpn_genconfig -u udp://VPN.SERVERNAME.COM
+docker run -v $OVPN_DATA:/etc/openvpn --rm -it evolvedm/openvpn-rpi ovpn_initpki
+### Start OpenVPN server process
+docker run -v $OVPN_DATA:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN --restart=always --name openvpn_server evolvedm/openvpn-rpi
+
+### Generate a client certificate without a passphrase
+docker run -v $OVPN_DATA:/etc/openvpn  --rm -it evolvedm/openvpn-rpi easyrsa build-client-full CLIENTNAME nopass
+
+### Retrieve the client configuration with embedded certificates
+docker run -v $OVPN_DATA:/etc/openvpn --rm evolvedm/openvpn-rpi ovpn_getclient CLIENTNAME > CLIENTNAME.ovpn
+
+This was taken from the following links:
+https://github.com/kylemanna/docker-openvpn
+https://hub.docker.com/r/evolvedm/openvpn-rpi 
