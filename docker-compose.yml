@@ -21,6 +21,7 @@ services:
     image: telegraf
     volumes:
       - ~/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    restart: always
       
   chronograf:
     image: tekanaid/chronograf:1.4
