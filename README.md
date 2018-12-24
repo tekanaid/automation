@@ -17,6 +17,9 @@ TOKEN: your own token
 
 DOMAIN: your own full domain including the .duckdns.org
 
+You can also just use the following docker run command instead of docker-compose:
+`docker run --name=duckdns -e TZ=America/Toronto -e DOMAIN=yousry.duckdns.org -e TOKEN=e11e2bb7-a87b-4e65-b1c9-ca5c1c503828 --restart=always tekanaid/duckdns-rpi:110`
+
 ## OpenVPN-Access Server for x86:
 
 Make sure to replace the ens160 in the docker-compose file with the proper interface that you get an IP on for the server
