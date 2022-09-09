@@ -19,7 +19,7 @@ services:
       - PUID=1001
       - PGID=100
       - TZ=America/Toronto
-      - SERVERURL=auto
+      - SERVERURL=auto # The container will automatically try to get the external IP, you can specify this as the duckdns DDNS
       - SERVERPORT=51820
       - PEERS=2 #change to match how many devies you want to use Wireguard on
       - PEERDNS=auto
