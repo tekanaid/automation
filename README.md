@@ -105,3 +105,9 @@ network:
   version: 2
   renderer: NetworkManager
 ```
+  
+  Then run:
+  
+  ```bash
+  sudo netplan apply
+  ```
