@@ -61,3 +61,47 @@ docker run -v $OVPN_DATA:/etc/openvpn --rm evolvedm/openvpn-rpi ovpn_getclient C
 This was taken from the following links:
 https://github.com/kylemanna/docker-openvpn
 https://hub.docker.com/r/evolvedm/openvpn-rpi 
+
+## Install Armbian for OrangePI
+
+Download the image from here:
+https://www.armbian.com/orange-pi-zero/
+
+Get balena etcher to flash the sd card from here:
+https://www.balena.io/etcher/
+
+## Download Docker
+
+Normally as you usually do it. I used Ubuntu installation because Debian at the time didn't have the repo for 22.04 Jammy.
+
+## Wireguard
+
+Use the `docker-compose-rpi.yml` file.
+
+To see the peer QR code to use with the Android wireguard app:
+```bash
+docker exec -it wireguard /app/show-peer 1
+```
+
+This is a good guide:
+https://www.addictedtotech.net/home-vpn-using-wireguard-docker-on-a-raspberry-pi-4/
+
+## Static IP and Networking for the OrangePI Armbian
+
+Add static ip and DNS to the OrangePI
+
+```bash
+sudo cat /etc/netplan/armbian-default.yaml
+network:
+  ethernets:
+      eth0:
+          dhcp4: false
+          addresses: [192.168.1.99/24]
+          routes:
+          - to: default
+            via: 192.168.1.254
+          nameservers:
+            addresses: [192.168.1.80]
+  version: 2
+  renderer: NetworkManager
+```
