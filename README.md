@@ -111,3 +111,9 @@ network:
   ```bash
   sudo netplan apply
   ```
+  
+  and check with:
+  
+  ```bash
+  ip a
+  ```
