@@ -22,7 +22,8 @@ services:
       - TZ=America/Toronto
       - SERVERURL=auto # The container will automatically try to get the external IP, you can specify this as the duckdns DDNS
       - SERVERPORT=51820
-      - PEERS=2 #change to match how many devies you want to use Wireguard on
+      - PEERS=samMobile samLaptop bobMobile bobMobile
+      #- PEERS=2 #change to match how many devies you want to use Wireguard on
       - PEERDNS=auto
       - INTERNAL_SUBNET=10.13.13.0 #optional
       - ALLOWEDIPS=0.0.0.0/0 #optional
