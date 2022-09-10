@@ -82,6 +82,10 @@ To see the peer QR code to use with the Android wireguard app:
 ```bash
 docker exec -it wireguard /app/show-peer 1
 ```
+or
+```bash
+docker exec -it wireguard /app/show-peer samMobile
+```
 
 This is a good guide:
 https://www.addictedtotech.net/home-vpn-using-wireguard-docker-on-a-raspberry-pi-4/
