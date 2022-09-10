@@ -8,6 +8,7 @@ services:
       TZ: America/Toronto
       TOKEN: <TOKEN>
       DOMAIN: <SUBDOMAIN>.duckdns.org
+    restart: always
 
   wireguard:
     image: lscr.io/linuxserver/wireguard
