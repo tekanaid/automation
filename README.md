@@ -15,6 +15,21 @@ sudo rm /var/services/photo 	sudo ln -s /volume1/photo /var/services/photo
 May need to restart this service:
 sudo systemctl restart pgsql-adapter
 
+Run a 
+```bash
+diff /volume2 /volume1 | grep -i "Only in /volume2"
+```
+
+Then start copying folders over with permissions:
+```bash
+sudo cp -rp /volume2/@ActiveBackup /volume1/@ActiveBackup
+sudo cp -rp /volume2/@ActiveBackup-GSuite /volume1/@ActiveBackup-GSuite
+sudo cp -rp /volume2/@autoupdate /volume1/@autoupdate
+sudo cp -rp /volume2/@cloudsync /volume1/@cloudsync
+sudo cp -rp /volume2/@deleted_subvol /volume1/@deleted_subvol
+```
+
+
 ## DuckDNS for x86:
 
 Make sure to replace the below under the duckdns section with your own parameters:
