@@ -1,6 +1,11 @@
 # Automation
 This is mainly a docker-compose file to set up some home automation stuff. The docker-compose.yml is for x86 machines and the docker-compose-rpi.yml is for the ARM architecture.
 
+## Synology
+
+Migrating Apps between volumes
+https://veducate.co.uk/synology-moving-a-package-between-volumes/
+
 ## DuckDNS for x86:
 
 Make sure to replace the below under the duckdns section with your own parameters:
