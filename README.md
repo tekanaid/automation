@@ -6,6 +6,15 @@ This is mainly a docker-compose file to set up some home automation stuff. The d
 Migrating Apps between volumes
 https://veducate.co.uk/synology-moving-a-package-between-volumes/
 
+Also need to update the sym links
+sudo rm /var/services/homes 	sudo ln -s /volume1/homes /var/services/homes 
+sudo rm /var/services/music 	sudo ln -s /volume1/music /var/services/music 
+sudo rm /var/services/pgsql 	sudo ln -s /volume1/@database/pgsql /var/services/pgsql 
+sudo rm /var/services/photo 	sudo ln -s /volume1/photo /var/services/photo 
+
+May need to restart this service:
+sudo systemctl restart pgsql-adapter
+
 ## DuckDNS for x86:
 
 Make sure to replace the below under the duckdns section with your own parameters:
