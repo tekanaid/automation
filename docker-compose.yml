@@ -40,13 +40,14 @@ services:
     restart: always
 
   home-assistant:
-    image: tekanaid/homeassistant:0.60
-    ports:
-      - 8123:8123
+    image: homeassistant/home-assistant:2022.4.7
+    network_mode: host
+    # ports:
+    #   - 8123:8123
     environment:
       TZ: America/Toronto
     volumes: 
-      - ~/HomeAssistant:/config
+      - /home/sam/automation/HASS:/config
     restart: always  
 
   duckdns:
