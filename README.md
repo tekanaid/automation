@@ -116,8 +116,12 @@ or
 docker exec -it wireguard /app/show-peer samMobile
 ```
 
-This is a good guide:
+### Good Guides for Wireguard
+This is a good guide for using wireguard as a container on a pi:
 https://www.addictedtotech.net/home-vpn-using-wireguard-docker-on-a-raspberry-pi-4/
+
+This is a good guide for using wireguard directly on a pi and works with orangepi too:
+https://www.wundertech.net/setup-wireguard-on-a-raspberry-pi-vpn-setup-tutorial/
 
 ## Static IP and Networking for the OrangePI Armbian
 
