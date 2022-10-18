@@ -158,4 +158,7 @@ network:
 
 ## Wireguard on Orange Pi
 
+I found that docker is too heavy on an orange pi zero, so it's best to not use it.
 [Use this guide](https://linuxhint.com/install-setup-wireguard-raspberry-pi/)
+  
+For duckdns, follow the install instructions for using cron on the duckdns.org site.
