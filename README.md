@@ -154,3 +154,8 @@ network:
   ```bash
   ip a
   ```
+
+
+## Wireguard on Orange Pi
+
+[Use this guide](https://linuxhint.com/install-setup-wireguard-raspberry-pi/)
